@@ -7,5 +7,5 @@
         <b>HAPPY NEW YEAR IN ADVANCE 🥳</b>
         Made With ❤ By Me David Mesoma Chigozie. Please Star It 👍.
     </li>
-    <a href="" target="_blank">Visit the live link.</a>
+    <a href="https://davidmeso.github.io/MerZa-Beatz/" target="_blank">Visit the live link.</a>
 </ul>
