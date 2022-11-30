@@ -17,7 +17,7 @@ h1 {
     font-size: xx-large;
     font-weight: bolder;
     font-size: 2.5rem;
-    text-shadow: 1px 2px 0 #777;
+    text-shadow: 1px 1px 0 #00ffa6;
     user-select: none;
     margin-bottom: 30px;
 }
@@ -71,6 +71,16 @@ h1 {
     z-index: 1;
     background-color: #151a21;
 }
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #151a21;;
+}
+.socials a {
+    color: #00ffa6;
+}
 .action-btn {
     background-color: #151a21;
     border: 0;
@@ -88,7 +98,7 @@ h1 {
     outline: 0;
 }
 .progress-container {
-    background: #fff;
+    background: #151a21;
     border-radius: 5px;
     cursor: pointer;
     margin: 30px 0;
@@ -96,7 +106,7 @@ h1 {
     width: 100%;
 }
 .progress {
-    background: #000;
+    background: #00ffa6;
     border-radius: 5px;
     height: 100%;
     width: 5%;
