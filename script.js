@@ -14,6 +14,28 @@ const listBtn = document.querySelector('#list');
 
 const songs = ['Bad_Liar - Imagine_Dragons', 'What About Us - Pink', 'Natalie_Taylor - Surrender' ,'Fight Song - Rachel Platten', 'Unstoppable - Sia', 'Meghan-Trainor - \nBetter-When-Im-Dancin', 'Shape Of You - Ed Sheeran', 'Pentatonix - \nThats-Christmas-To-Me', 'Pentatonix - \nJoy_To_The_World', 'Sebastian_Yatra - \nDos_Oruguitas'];
 
+let events = {
+    mouse: {
+      click: "click",
+    },
+    touch: {
+      click: "touchstart",
+    },
+  };
+  let deviceType = "";
+  //Detect touch device
+  const isTouchDevice = () => {
+    try {
+      //We try to create TouchEvent(it would fail for desktops and throw error)
+      document.createEvent("TouchEvent");
+      deviceType = "touch";
+      return true;
+    } catch (e) {
+      deviceType = "mouse";
+      return false;
+    }
+};
+
 let repSongIndex;
 
 let songIndex = 0;
