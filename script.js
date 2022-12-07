@@ -1,7 +1,8 @@
 const musicContainer = document.querySelector('.music-container');
 const musicTitle = document.querySelector('#title');
 const progressContainer = document.querySelector('.progress-container');
-const progressBar = document.querySelector('.progress');
+const currentTime = document.querySelector('.current-time');
+const durationTime = document.querySelector('.duration-time');
 const audio = document.querySelector('#audio');
 const loop = document.querySelector('loop');
 const previousBtn = document.querySelector('#prev');
@@ -11,30 +12,11 @@ const menu = document.querySelector('#menu');
 const musicCover = document.querySelector('#cover');
 const repeatBtn = document.querySelector('#repeat');
 const listBtn = document.querySelector('#list');
+const removeBtn = document.querySelector('#remove-btn');
+const musicLists = document.querySelector('.music-lists');
+const theMusics = document.querySelector('#music');
 
 const songs = ['Bad_Liar - Imagine_Dragons', 'What About Us - Pink', 'Natalie_Taylor - Surrender' ,'Fight Song - Rachel Platten', 'Unstoppable - Sia', 'Meghan-Trainor - \nBetter-When-Im-Dancin', 'Shape Of You - Ed Sheeran', 'Pentatonix - \nThats-Christmas-To-Me', 'Pentatonix - \nJoy_To_The_World', 'Sebastian_Yatra - \nDos_Oruguitas'];
-
-let events = {
-    mouse: {
-      click: "click",
-    },
-    touch: {
-      click: "touchstart",
-    },
-  };
-  let deviceType = "";
-  //Detect touch device
-  const isTouchDevice = () => {
-    try {
-      //We try to create TouchEvent(it would fail for desktops and throw error)
-      document.createEvent("TouchEvent");
-      deviceType = "touch";
-      return true;
-    } catch (e) {
-      deviceType = "mouse";
-      return false;
-    }
-};
 
 let repSongIndex;
 
@@ -45,7 +27,7 @@ loadSong(songs[songIndex]);
 function loadSong(song) {
     musicTitle.innerText = song;
     audio.src = `music/${song}.mp3`;
-    musicCover.src = `images/${song}.jpg`;
+    musicCover.src = `imgs/${song}.jpg`;
 }
 
 function playSong() {
@@ -89,21 +71,56 @@ function nextSong() {
 }
 
 function repeatSong() {
+
     if (songIndex >= songIndex) {
         repSongIndex = songIndex *= 1;
+        console.log(repSongIndex);
     }
-
+    // repeatBtn.classList.toggle('active');
     loadSong(songs[songIndex]);
 
     playSong();
 }
 
-function updateProgress(e) {
-    const { duration, currentTime } = e.srcElement;
-    const progressPercent = (currentTime / duration) * 100;
-    progressBar.style.width = `${progressPercent}%`;
-    console.log(e.srcElement);
+function toggleList() {
+    musicLists.style.display = 'block';
 }
+function removeList() {
+    musicLists.style.display = 'none';
+}
+
+removeBtn.addEventListener('click', removeList);
+
+listBtn.addEventListener('click', toggleList);
+
+function updateProgress(e) {
+    progressContainer.max = audio.duration;
+    progressContainer.value = audio.currentTime;
+    currentTime.innerHTML = (formatTime(Math.floor(audio.currentTime)));
+    if (durationTime.innerHTML === 'NaN:NaN') {
+        durationTime.innerHTML = '0:00';
+    } else {
+        durationTime.innerHTML = (formatTime(Math.floor(audio.duration)));
+    }
+
+    // progressContainer.style.backgroundColor = '#00ffa6';
+
+
+    // const { duration, currentTime } = e.srcElement;
+    // const progressPercent = (currentTime / duration) * 100;
+    // progressBar.style.width = `${progressPercent}%`;
+}
+
+function formatTime(seconds) {
+    let min = Math.floor((seconds / 60));
+    let sec = Math.floor(seconds - (min * 60));
+    if (sec < 10) {
+        sec = `0${sec}`;
+    };
+    return `${min}:${sec}`;
+}
+
+setInterval(updateProgress, 500);
 
 function setProgress(e) {
     const width = this.clientWidth;
@@ -126,7 +143,6 @@ function playPause() {
 repeatBtn.addEventListener('click', repeatStyle);
 
 function repeatStyle() {
-    repeat.style.backgroundColor = 'rgb(255, 166, 0)';
     repeatBtn.style.color = '#00ffa6';
     repeat.style.padding = '5px';
 }

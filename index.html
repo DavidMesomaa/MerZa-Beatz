@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MerZa-Beatz, music player, song recommendation, download music, javascript project, songs">
-    <meta name="keywords" content="frontend, music, spotify, youtube, boomplay, javascript project, MerZa-Beatz, portfolio, david, mesoma, chigozie, github, design, music player, songs, gen z, creator, download music">
-    <meta name="author" content="David C. Mesoma Chigozie">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <title>MerZa-Beatz</title>
 </head>
 <body>
@@ -16,12 +13,14 @@
     <div class="music-container">
         <div class="music-info">
             <div class="img-container">
-                <img src="images/What-About-Us.jpg" alt="music-cover" id="cover">
+                <img src="imgs/What-About-Us.jpg" alt="music-cover" id="cover">
             </div>
             <h4 id="title">What About Us - Pink</h4>
         </div>
-        <div class="progress-container" id="progress-container">
-            <div class="progress" id="progress"></div>
+        <input type="range" name="progress" class="progress-container" min="0" max="" value="0">
+        <div class="time-container">    
+            <div class="current-time"></div>
+            <div class="duration-time"></div>
         </div>
 
         <audio src="music/What About Us - Pink.mp3" id="audio"></audio>
@@ -30,33 +29,48 @@
             <button id="list" class="action-btn" title="Music List">
                 <i class="fa fa-list"></i>
             </button>
+            <div class="music-lists">
+                <button id="music" class="title">Play-list
+                    <i class="fa fa-arrow-right" id="remove-btn"></i>
+                </button>
+                <button id="music" class="music1">Updating Music Playlist...</button>
+                <button id="music" class="music2">Updating Music Playlist...</button>
+                <button id="music" class="music3">Updating Music Playlist...</button>
+                <button id="music" class="music4">Updating Music Playlist...</button>
+                <button id="music" class="music5">Updating Music Playlist...</button>
+                <button id="music" class="music6">Updating Music Playlist...</button>
+                <button id="music" class="music7">Updating Music Playlist...</button>
+                <button id="music" class="music8">Updating Music Playlist...</button>
+                <button id="music" class="music9">Updating Music Playlist...</button>
+                <button id="music" class="music10">Updating Music Playlist...</button>
+            </div>
             <button id="prev" class="action-btn">
                 <i class="fa fa-backward-step"></i>
-        </button>
-        <button id="play" class="action-btn action-btn-big">
-            <i class="fa fa-play"></i>
-        </button>
-        <button id="next" class="action-btn">
-            <i class="fa fa-forward-step"></i>
-        </button>
-        <button id="repeat" class="action-btn" title="Repeat Song">
-            <i class="fa fa-repeat"></i>
-        </button>
-    </div>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+                <i class="fa fa-play"></i>
+            </button>
+            <button id="next" class="action-btn">
+                <i class="fa fa-forward-step"></i>
+            </button>
+            <button id="repeat" class="action-btn" title="Repeat Song">
+                <i class="fa fa-repeat"></i>
+            </button>
+        </div>
 
-    <div class="socials">
-        <a href="https://open.spotify.com/artist/53XhwfbYqKCa1cC15pYq2q?autoplay=true" target="_blank" class="action-btn">
-            <i class="fa-brands fa-spotify"></i>
-        </a>
-        <a href="https://www.youtube.com/imagine-dragons" target="_blank" class="action-btn">
-            <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="https://www.github.com/DavidMeso/MerZa-Beatz" target="_blank" class="action-btn" title="Rate on GitHub">
-            <i class="fa-brands fa-github"></i>
-        </a>
-    </div>
+        <div class="socials">
+            <a href="#" target="_blank" class="action-btn">
+                <i class="fa-brands fa-spotify"></i>
+            </a>
+            <a href="#" target="_blank" class="action-btn">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://www.github.com/DavidMeso/MerZa-Beatz" target="_blank" class="action-btn" title="Rate on GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
 
-</div>
+    </div>
 
     <script src="script.js"></script>
 </body>
