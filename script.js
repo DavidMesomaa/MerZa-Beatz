@@ -103,8 +103,6 @@ function updateProgress(e) {
         durationTime.innerHTML = (formatTime(Math.floor(audio.duration)));
     }
 
-    // progressContainer.style.backgroundColor = '#00ffa6';
-
 
     // const { duration, currentTime } = e.srcElement;
     // const progressPercent = (currentTime / duration) * 100;
